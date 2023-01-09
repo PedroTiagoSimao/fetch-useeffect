@@ -6,7 +6,7 @@ export default function Home() {
   const getQuote = async () => {
     const res = await fetch('https://type.fit/api/quotes')
     const data = res.json()
-    setQuote(res)
+    setQuote(data)
   }
 
   useEffect(() => {
