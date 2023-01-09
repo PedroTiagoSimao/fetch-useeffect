@@ -4,9 +4,9 @@ export default function Home() {
   const [quote, setQuote] = useState('')
 
   const getQuote = async () => {
-    const res = await fetch('https://www.tronalddump.io/random/quote')
+    const res = await fetch('https://type.fit/api/quotes')
     const data = res.json()
-    setQuote(data)
+    setQuote(res)
   }
 
   useEffect(() => {
@@ -15,7 +15,12 @@ export default function Home() {
 
   return (
   <>
-    {quote}
+    {quote.map((q) => {
+      <div>
+        <p>{q.text}</p>
+        <p>{q.author}</p>
+      </div>
+    })}
   </>  
   )
 }
